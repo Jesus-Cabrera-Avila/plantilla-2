@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<header class="bg-warning text-dark py-4 mt-4">
+  <div class="container text-center">
+    <h1 class="fw-bold">Acerca de... MI??</h1>
+    <p class="lead mt-2">
+  Descubre un poco mas sobre mi
+    </p>
+  </div>
+</header>
+
+<div class="container my-5">
+    <section class="my-5">
+        <p>
+        Bueno me presento yo soy jesus o chuy como mucho medicen 
+        me gustan lo que son los videojuegos, anime, deportes, dibujar y mi musica favorita es el rock y metales la mejor
+        no salgo muchode casa prefiero quedarme jugando algun videojuego o dibujando tambien duermo y como muchoy 
+        y de grande me gustaria ser diseñador grafica ya que me gustaria trabajar como artista o algo por el estilo
+        </p>
+    </section>
+</div>
+
+<div class="container my-5">
+    <section class="my-5">
+<img src="{{ url_for('static', filename='imagenes/dante.jpg') }}" class="img-fluid rounded shadow" alt="dante sparda">
+    </section>
+</div>
+
+
+<footer class="bg-secondary text-white text-center py-4 mt-5">
+  <p class="mb-0">
+    Hecho por <strong>Jesús Cabrera Ávila</strong> — Programación 3-D, CETIS 61
+  </p>
+  <small>24308060610607@cetis61.edu.mx</small>
+</footer>
+
+{% endblock %}
