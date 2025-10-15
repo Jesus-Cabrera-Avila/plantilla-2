@@ -1,4 +1,0 @@
-{% block title %}Animales Exóticos{% endblock title%}
-
-
-{% endblock contenido %}

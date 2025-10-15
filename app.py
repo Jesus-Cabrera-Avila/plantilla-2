@@ -1,11 +1,15 @@
 from flask import Flask, render_template
 
+
 app = Flask(__name__)
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
+@app.route("/inicia secion")
+def registro():
+    return render_template("registro.html")
 
 @app.route("/animales")
 def animalia():
