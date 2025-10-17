@@ -16,7 +16,11 @@
               Completa los siguientes campos para registrarte en nuestra plataforma.
             </p>
 
-            <form action="#" method="post">
+            <div id="errorMessages" class="alert alert-danger d-none" role="alert">
+              Las contraseñas no coinciden. Por favor, intenta nuevamente.
+            </div>
+
+            <form id="registroForm" action="#" method="post">
 
               <div class="row">
                 <div class="col-md-6 mb-3">
@@ -42,8 +46,8 @@
                 </div>
 
                 <div class="col-md-4 mb-3">
-                  <label for="anio" class="form-label">Año</label>
-                  <input type="number" class="form-control" id="anio" placeholder="Año" min="1900" max="2025" required>
+                  <label for="año" class="form-label">Año</label>
+                  <input type="number" class="form-control" id="año" placeholder="Año" min="1900" max="2025" required>
                 </div>
               </div>
 
@@ -67,6 +71,11 @@
                 <input type="password" class="form-control" id="password" placeholder="Introduce tu contraseña" required minlength="8">
               </div>
 
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirmar contraseña</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirma tu contraseña" required minlength="8">
+              </div>
+
               <div class="d-grid mt-4">
                 <button type="submit" class="btn btn-primary btn-lg">Crear cuenta</button>
               </div>
@@ -79,6 +88,22 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <script>
+    document.getElementById("registroForm").addEventListener("submit", function(event)
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirmPassword").value;
+
+      var errorMessages = document.getElementById("errorMessages");
+
+      
+      if (password !== confirmPassword) {
+        event.preventDefault();
+        errorMessages.classList.remove("d-none");
+      } else {
+        errorMessages.classList.add("d-none");
+    });
+  </script>
 
 </div>
 {% endblock %}
