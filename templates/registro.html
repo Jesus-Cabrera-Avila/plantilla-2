@@ -16,44 +16,44 @@
               Completa los siguientes campos para registrarte en nuestra plataforma.
             </p>
 
-            <div id="errorMessages" class="alert alert-danger d-none" role="alert">
+            <div id="errorMessages" class="d-none" role="alert" style="color: #d9534f; border: 1px solid #d9534f; padding: 0.75rem; margin-bottom: 1rem; border-radius: 0.25rem;">
               Las contraseñas no coinciden. Por favor, intenta nuevamente.
             </div>
 
-            <form id="registroForm" action="#" method="post">
+            <form id="registroForm" action="/registro" method="POST">
 
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <label for="nombre" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" id="nombre" placeholder="Escribe tu nombre" required minlength="3">
+                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escribe tu nombre" required minlength="3">
                 </div>
 
                 <div class="col-md-6 mb-3">
                   <label for="apellido" class="form-label">Apellido</label>
-                  <input type="text" class="form-control" id="apellido" placeholder="Escribe tu apellido" required minlength="3">
+                  <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Escribe tu apellido" required minlength="3">
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-4 mb-3">
                   <label for="dia" class="form-label">Día</label>
-                  <input type="number" class="form-control" id="dia" placeholder="Día" min="1" max="31" required>
+                  <input type="number" class="form-control" id="dia" name="dia" placeholder="Día" min="1" max="31" required>
                 </div>
 
                 <div class="col-md-4 mb-3">
                   <label for="mes" class="form-label">Mes</label>
-                  <input type="text" class="form-control" id="mes" placeholder="Mes" required>
+                  <input type="text" class="form-control" id="mes" name="mes" placeholder="Mes" required>
                 </div>
 
                 <div class="col-md-4 mb-3">
                   <label for="año" class="form-label">Año</label>
-                  <input type="number" class="form-control" id="año" placeholder="Año" min="1900" max="2025" required>
+                  <input type="number" class="form-control" id="año" name="año" placeholder="Año" min="1900" max="2025" required>
                 </div>
               </div>
 
               <div class="mb-3">
                 <label for="genero" class="form-label">Género</label>
-                <select class="form-select" id="genero" required>
+                <select class="form-select" id="genero" name="genero" required>
                   <option value="">Seleccione su género</option>
                   <option value="femenino">Femenino</option>
                   <option value="masculino">Masculino</option>
@@ -63,17 +63,17 @@
 
               <div class="mb-3">
                 <label for="email" class="form-label">Correo electrónico o número telefónico</label>
-                <input type="email" class="form-control" id="email" placeholder="Introduce tu correo electrónico" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Introduce tu correo electrónico" required>
               </div>
 
               <div class="mb-3">
                 <label for="password" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="password" placeholder="Introduce tu contraseña" required minlength="8">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Introduce tu contraseña" required minlength="8">
               </div>
 
               <div class="mb-3">
                 <label for="confirmPassword" class="form-label">Confirmar contraseña</label>
-                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirma tu contraseña" required minlength="8">
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirma tu contraseña" required minlength="8">
               </div>
 
               <div class="d-grid mt-4">
@@ -90,18 +90,19 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
   <script>
-    document.getElementById("registroForm").addEventListener("submit", function(event) 
+    document.getElementById("registroForm").addEventListener("submit", function(event) {
       var password = document.getElementById("password").value;
       var confirmPassword = document.getElementById("confirmPassword").value;
 
       var errorMessages = document.getElementById("errorMessages");
 
-      
       if (password !== confirmPassword) {
         event.preventDefault();
         errorMessages.classList.remove("d-none");
+        document.getElementById("confirmPassword").focus(); 
       } else {
         errorMessages.classList.add("d-none");
+      }
     });
   </script>
 
