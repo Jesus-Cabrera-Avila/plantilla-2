@@ -49,6 +49,9 @@ def maravillas():
 def acerca():
     return render_template("acerca.html")
 
+@app.route("/login")
+def iniciar_sesion():
+    return render_template("login.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
